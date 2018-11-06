@@ -65,5 +65,34 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+        viewButton.setOnClickListener {
+            val movie = findViewById<EditText>(R.id.movie)
+            var description = findViewById<EditText>(R.id.description)
+            var date = findViewById<EditText>(R.id.editText)
+            var language = findViewById<RadioGroup>(R.id.rg)
+            var radioid:Int = language.checkedRadioButtonId
+            val radio1: RadioButton = findViewById(radioid)
+            if(check.isChecked) {
+                val no = "No"
+                val intent = Intent(this, MainActivity2::class.java)
+                intent.putExtra("movie", movie.text.toString())
+                intent.putExtra("description", description.text.toString())
+                intent.putExtra("date", date.text.toString())
+                intent.putExtra("language", radio1.text.toString())
+                intent.putExtra("age", no)
+                startActivity(intent)
+            }
+            else if (check.isChecked == false)
+            {
+                val yes = "Yes"
+                val intent = Intent(this, MainActivity2::class.java)
+                intent.putExtra("moviename", movie.text.toString())
+                intent.putExtra("description", description.text.toString())
+                intent.putExtra("date", date.text.toString())
+                intent.putExtra("language", radio1.text.toString())
+                intent.putExtra("age", yes)
+                startActivity(intent)
+            }
+        }
     }
 }
