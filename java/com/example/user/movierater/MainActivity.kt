@@ -20,9 +20,9 @@ class MainActivity : AppCompatActivity() {
                 checkBox1.visibility = View.VISIBLE
                 checkBox2.visibility = View.VISIBLE
             } else {
-                checkBox1.visibility = View.GONE
+                checkBox1.visibility = View.INVISIBLE
                 checkBox1.isChecked = false
-                checkBox2.visibility = View.GONE
+                checkBox2.visibility = View.INVISIBLE
                 checkBox2.isChecked = false
             }
         }
@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
             for (id in ids) {
                 val lol = findViewById<View>(id) as EditText
 
-                if (TextUtils.isEmpty(lol.text.toString())) {
+                if (lol.text.toString().isEmpty()) {
                     lol.setError("Must enter Value")
                 } else {
                     var rc = findViewById<RadioGroup>(R.id.rg)
@@ -63,35 +63,6 @@ class MainActivity : AppCompatActivity() {
                     }
 
                 }
-            }
-        }
-        viewButton.setOnClickListener {
-            val movie = findViewById<EditText>(R.id.movie)
-            var description = findViewById<EditText>(R.id.description)
-            var date = findViewById<EditText>(R.id.editText)
-            var language = findViewById<RadioGroup>(R.id.rg)
-            var radioid:Int = language.checkedRadioButtonId
-            val radio1: RadioButton = findViewById(radioid)
-            if(check.isChecked) {
-                val no = "No"
-                val intent = Intent(this, MainActivity2::class.java)
-                intent.putExtra("movie", movie.text.toString())
-                intent.putExtra("description", description.text.toString())
-                intent.putExtra("date", date.text.toString())
-                intent.putExtra("language", radio1.text.toString())
-                intent.putExtra("age", no)
-                startActivity(intent)
-            }
-            else if (check.isChecked == false)
-            {
-                val yes = "Yes"
-                val intent = Intent(this, MainActivity2::class.java)
-                intent.putExtra("moviename", movie.text.toString())
-                intent.putExtra("description", description.text.toString())
-                intent.putExtra("date", date.text.toString())
-                intent.putExtra("language", radio1.text.toString())
-                intent.putExtra("age", yes)
-                startActivity(intent)
             }
         }
     }
