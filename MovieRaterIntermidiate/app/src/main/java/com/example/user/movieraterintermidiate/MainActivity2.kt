@@ -43,14 +43,14 @@ class MainActivity2 : AppCompatActivity() {
 
                     if (lol.text.toString().isEmpty()) {
                         lol.setError("Must enter Value")
-                    } else {
+                    } else if(!lol.text.toString().isEmpty()){
                         var rc = findViewById<RadioGroup>(R.id.rg)
                         var radioid: Int = rc.checkedRadioButtonId
                         if (radioid != -1) {
                             val radio1: RadioButton = findViewById(radioid)
                             if (checkBox.isChecked) {
                                 val age = "No"
-                                var moviedesc = MovieDetail(movie.text.toString(),description.text.toString(),editText.text.toString(),radio1.text.toString(),age)
+                                var moviedesc = MovieDetail(movie.text.toString(),description.text.toString(),radio1.text.toString(),editText.text.toString(),age)
                                 val intent = Intent(this, MainActivity3::class.java)
                                 intent.putExtra("moviename", movie.text.toString())
                                 intent.putExtra("description", description.text.toString())
