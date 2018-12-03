@@ -1,6 +1,7 @@
 package com.example.user.movieraterintermidiate
 
-class MovieDetail(movie : String, description : String, language: String, date: String, age: String) {
+class MovieDetail(movie : String, description : String, language: String, date: String, age: String){
+
     var movie: String
     var description: String
     var language: String

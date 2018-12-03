@@ -1,5 +1,6 @@
 package com.example.user.movieraterintermidiate
 
+import com.example.user.movieraterintermidiate.MovieDetail
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -49,6 +50,7 @@ class MainActivity2 : AppCompatActivity() {
                             val radio1: RadioButton = findViewById(radioid)
                             if (checkBox.isChecked) {
                                 val age = "No"
+                                var moviedesc = MovieDetail(movie.text.toString(),description.text.toString(),editText.text.toString(),radio1.text.toString(),age)
                                 val intent = Intent(this, MainActivity3::class.java)
                                 intent.putExtra("moviename", movie.text.toString())
                                 intent.putExtra("description", description.text.toString())
@@ -60,6 +62,7 @@ class MainActivity2 : AppCompatActivity() {
                             else if(!checkBox.isChecked)
                             {
                                 val age = "Yes"
+                                var moviedesc = MovieDetail(movie.text.toString(),description.text.toString(),editText.text.toString(),radio1.text.toString(),age)
                                 val intent = Intent(this, MainActivity3::class.java)
                                 intent.putExtra("moviename", movie.text.toString())
                                 intent.putExtra("description", description.text.toString())
