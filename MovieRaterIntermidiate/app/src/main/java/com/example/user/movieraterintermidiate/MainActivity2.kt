@@ -16,6 +16,7 @@ class MainActivity2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
+        supportActionBar
         val check = findViewById<CheckBox>(R.id.checkBox)
         check.setOnCheckedChangeListener { buttonView, isChecked ->
             if (checkBox.isChecked) {
