@@ -4,10 +4,12 @@
       xmlns:app="http://schemas.android.com/apk/res-auto"
       tools:context=".MainActivity2" >
     <item
-            android:id="@+id/miRegister" android:orderInCategory="201"
-            app:showAsAction="ifRoom" android:title="Add"/>
+            android:id="@+id/miRegister"
+            app:showAsAction="ifRoom"
+            android:title="Add"/>
     <item
-            android:id="@+id/miClear" android:orderInCategory="202"
-            app:showAsAction="never" android:title="Clear Entries"/>
+            android:id="@+id/miClear"
+            app:showAsAction="never"
+            android:title="Clear Entries"/>
 
 </menu>
