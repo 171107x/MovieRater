@@ -48,31 +48,25 @@ class MainActivity2 : AppCompatActivity() {
                         if (radioid != -1) {
                             val radio1: RadioButton = findViewById(radioid)
                             if (checkBox.isChecked) {
-                                if (checkBox1.isChecked && checkBox2.isChecked) {
-                                    Toast.makeText(
-                                        this@MainActivity2,
-                                        "Title = " + movie.text + "\nOverview = " + description.text + "\nLanguage= " + radio1.text + "\nRelease Date = " + editText.text + "\nNot Suitable for all ages" + "\nReason: " + checkBox1.text + "\n" + checkBox2.text,
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                } else if (checkBox2.isChecked) {
-                                    Toast.makeText(
-                                        this@MainActivity2,
-                                        "Title = " + movie.text + "\nOverview = " + description.text + "\nLanguage= " + radio1.text + "\nRelease Date = " + editText.text + "\nNot Suitable for all ages" + "\nReason: " + checkBox2.text,
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                } else if (checkBox1.isChecked) {
-                                    Toast.makeText(
-                                        this@MainActivity2,
-                                        "Title = " + movie.text + "\nOverview = " + description.text + "\nLanguage= " + radio1.text + "\nRelease Date = " + editText.text + "\nNot Suitable for all ages" + "\nReason: " + checkBox1.text,
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                }
-                            } else {
-                                Toast.makeText(
-                                    this@MainActivity2,
-                                    "Title = " + movie.text + "\nOverview = " + description.text + "\nLanguage= " + radio1.text + "\nRelease Date = " + editText.text,
-                                    Toast.LENGTH_SHORT
-                                ).show()
+                                val age = "No"
+                                val intent = Intent(this, MainActivity3::class.java)
+                                intent.putExtra("moviename", movie.text.toString())
+                                intent.putExtra("description", description.text.toString())
+                                intent.putExtra("date", editText.text.toString())
+                                intent.putExtra("language", radio1.text.toString())
+                                intent.putExtra("age", age)
+                                startActivity(intent)
+                            }
+                            else if(!checkBox.isChecked)
+                            {
+                                val age = "Yes"
+                                val intent = Intent(this, MainActivity3::class.java)
+                                intent.putExtra("moviename", movie.text.toString())
+                                intent.putExtra("description", description.text.toString())
+                                intent.putExtra("date", editText.text.toString())
+                                intent.putExtra("language", radio1.text.toString())
+                                intent.putExtra("age", age)
+                                startActivity(intent)
                             }
                         }
 
