@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.user.movieraterintermidiate">
+          package="user.example.com.movierateradvance">
 
     <application
             android:name=".MovieDetail"
@@ -17,13 +17,11 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity
-                android:name=".MainActivity2"
-                android:parentActivityName=".MainActivity">
+        <activity android:name=".MainActivity3"
+                  android:parentActivityName=".MainActivity">
         </activity>
-        <activity
-                android:name=".MainActivity3"
-                android:parentActivityName=".MainActivity">
+        <activity android:name=".MainActivity2"
+                  android:parentActivityName=".MainActivity">
         </activity>
         <activity android:name=".MainActivity4"
                   android:parentActivityName=".MainActivity3">

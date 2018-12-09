@@ -1,4 +1,4 @@
-package com.example.user.movieraterintermidiate
+package user.example.com.movierateradvance
 
 import android.app.Application
 

@@ -1,4 +1,4 @@
-package com.example.user.movieraterintermidiate
+package user.example.com.movierateradvance
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
@@ -10,7 +10,6 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main3.*
-
 
 class MainActivity3 : AppCompatActivity() {
 

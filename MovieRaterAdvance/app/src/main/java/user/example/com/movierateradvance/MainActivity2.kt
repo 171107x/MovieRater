@@ -1,19 +1,24 @@
-package com.example.user.movieraterintermidiate
+package user.example.com.movierateradvance
 
-import com.example.user.movieraterintermidiate.MovieDetail
 import android.content.Intent
-import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.view.View
+import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.*
-import android.text.TextUtils
+import android.view.View
+import android.widget.CheckBox
+import android.widget.EditText
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import kotlinx.android.synthetic.main.activity_main2.*
 
 class MainActivity2 : AppCompatActivity() {
 
-    var ids = intArrayOf(R.id.movie, R.id.description, R.id.editText)
+    var ids = intArrayOf(
+        R.id.movie,
+        R.id.description,
+        R.id.editText
+    )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
@@ -60,11 +65,13 @@ class MainActivity2 : AppCompatActivity() {
                     if (checkBox.isChecked) {
                         val age = "No"
                         val movieDesc = applicationContext as MovieDetail
+                        val listMovie = applicationContext as MovieArray
                         movieDesc.movie = movie.text.toString()
                         movieDesc.description = description.text.toString()
                         movieDesc.language = radio1.text.toString()
                         movieDesc.date = editText.text.toString()
                         movieDesc.age = age
+                        listMovie.addMovie(movieDesc)
                         val intent = Intent(applicationContext, MainActivity3::class.java)
                         startActivity(intent)
                     }
@@ -72,11 +79,13 @@ class MainActivity2 : AppCompatActivity() {
                     {
                         val age = "Yes"
                         val movieDesc = applicationContext as MovieDetail
+                        val listMovie = applicationContext as MovieArray
                         movieDesc.movie = movie.text.toString()
                         movieDesc.description = description.text.toString()
                         movieDesc.language = radio1.text.toString()
                         movieDesc.date = editText.text.toString()
                         movieDesc.age = age
+                        listMovie.addMovie(movieDesc)
                         val intent = Intent(applicationContext, MainActivity3::class.java)
                         startActivity(intent)
                     }
@@ -92,7 +101,8 @@ class MainActivity2 : AppCompatActivity() {
             checkBox.isChecked = false;
 
         }
-            return super.onOptionsItemSelected(item)
-        }
+        return super.onOptionsItemSelected(item)
     }
+
+}
 
