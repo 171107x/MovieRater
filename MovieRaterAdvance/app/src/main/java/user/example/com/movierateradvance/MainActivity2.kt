@@ -64,28 +64,28 @@ class MainActivity2 : AppCompatActivity() {
                     val radio1: RadioButton = findViewById(radioid)
                     if (checkBox.isChecked) {
                         val age = "No"
-                        val movieDesc = applicationContext as MovieDetail
-                        val listMovie = applicationContext as MovieArray
+                        val movieDesc = MovieDetail()
                         movieDesc.movie = movie.text.toString()
                         movieDesc.description = description.text.toString()
                         movieDesc.language = radio1.text.toString()
                         movieDesc.date = editText.text.toString()
                         movieDesc.age = age
-                        listMovie.addMovie(movieDesc)
+                        val movieL = applicationContext as MovieArray
+                        movieL.addMovie(movieDesc)
                         val intent = Intent(applicationContext, MainActivity3::class.java)
                         startActivity(intent)
                     }
                     else if(!checkBox.isChecked)
                     {
                         val age = "Yes"
-                        val movieDesc = applicationContext as MovieDetail
-                        val listMovie = applicationContext as MovieArray
+                        val movieDesc = MovieDetail()
                         movieDesc.movie = movie.text.toString()
                         movieDesc.description = description.text.toString()
                         movieDesc.language = radio1.text.toString()
                         movieDesc.date = editText.text.toString()
                         movieDesc.age = age
-                        listMovie.addMovie(movieDesc)
+                        val movieL = applicationContext as MovieArray
+                        movieL.addMovie(movieDesc)
                         val intent = Intent(applicationContext, MainActivity3::class.java)
                         startActivity(intent)
                     }

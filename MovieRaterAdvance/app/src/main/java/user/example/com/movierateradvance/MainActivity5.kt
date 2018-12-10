@@ -14,19 +14,20 @@ class MainActivity5 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main5)
         supportActionBar
-        val movieDesc = applicationContext as MovieDetail
+        val movieDesc = applicationContext as MovieArray
+        val movieDetails = movieDesc.getMovie().last()
 
         val movie = findViewById<EditText>(R.id.movie)
         val description = findViewById<EditText>(R.id.description)
         val date = findViewById<EditText>(R.id.editText)
-        movie.setText(movieDesc.movie)
-        description.setText(movieDesc.description)
-        date.setText(movieDesc.date)
+        movie.setText(movieDetails.movie)
+        description.setText(movieDetails.description)
+        date.setText(movieDetails.date)
         when {
-            movieDesc.language=="English" -> english.isChecked
-            movieDesc.language=="Chinese" -> chinese.isChecked
-            movieDesc.language=="Malay" -> malay.isChecked
-            movieDesc.language=="Tamil" -> tamil.isChecked
+            movieDetails.language=="English" -> english.isChecked
+            movieDetails.language=="Chinese" -> chinese.isChecked
+            movieDetails.language=="Malay" -> malay.isChecked
+            movieDetails.language=="Tamil" -> tamil.isChecked
         }
 
     }
@@ -63,25 +64,27 @@ class MainActivity5 : AppCompatActivity() {
             if(radioid != -1) {
                 val radio1: RadioButton = findViewById(radioid)
                 if(checkBox.isChecked) {
-                    val movieDesc = applicationContext as MovieDetail
+                    val movieDesc = applicationContext as MovieArray
+                    val movieDetails = movieDesc.getMovie().last()
                     val intent = Intent(applicationContext, MainActivity3::class.java)
-                    movieDesc.movie = movie.text.toString()
-                    movieDesc.description = description.text.toString()
-                    movieDesc.date = date.text.toString()
-                    movieDesc.language=radio1.text.toString()
-                    movieDesc.age = "No"
+                    movieDetails.movie = movie.text.toString()
+                    movieDetails.description = description.text.toString()
+                    movieDetails.date = date.text.toString()
+                    movieDetails.language=radio1.text.toString()
+                    movieDetails.age = "No"
                     startActivity(intent)
                 }
 
                 else if(!checkBox.isChecked)
                 {
-                    val movieDesc = applicationContext as MovieDetail
+                    val movieDesc = applicationContext as MovieArray
+                    val movieDetails = movieDesc.getMovie().last()
                     val intent = Intent(applicationContext, MainActivity3::class.java)
-                    movieDesc.movie = movie.text.toString()
-                    movieDesc.description = description.text.toString()
-                    movieDesc.date = date.text.toString()
-                    movieDesc.language=radio1.text.toString()
-                    movieDesc.age = "Yes"
+                    movieDetails.movie = movie.text.toString()
+                    movieDetails.description = description.text.toString()
+                    movieDetails.date = date.text.toString()
+                    movieDetails.language=radio1.text.toString()
+                    movieDetails.age = "Yes"
                     startActivity(intent)
                 }
             }

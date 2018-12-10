@@ -19,7 +19,8 @@ class MainActivity3 : AppCompatActivity() {
         supportActionBar
 
         registerForContextMenu(review)
-        val movieDesc = applicationContext as MovieDetail
+        val movieDesc = applicationContext as MovieArray
+        val movieDetails = movieDesc.getMovie().last()
 
         val movie = findViewById<TextView>(R.id.movie)
         val description = findViewById<TextView>(R.id.description)
@@ -27,18 +28,18 @@ class MainActivity3 : AppCompatActivity() {
         val language = findViewById<TextView>(R.id.language)
         val age = findViewById<TextView>(R.id.suitable)
 
-        movie.text = movieDesc.movie
-        description.text = movieDesc.description
-        date.text = movieDesc.language
-        language.text = movieDesc.date
-        age.text = movieDesc.age
+        movie.text = movieDetails.movie
+        description.text = movieDetails.description
+        date.text = movieDetails.date
+        language.text = movieDetails.language
+        age.text = movieDetails.age
 
-        if(movieDesc.rating>0F)
+        if(movieDetails.rating>0F)
         {
             ratingBar.layoutParams.height= ActionBar.LayoutParams.WRAP_CONTENT
-            ratingBar.rating = movieDesc.rating
+            ratingBar.rating = movieDetails.rating
             ratingBar.visibility = View.VISIBLE
-            review.text = movieDesc.review
+            review.text = movieDetails.review
         }
 
     }

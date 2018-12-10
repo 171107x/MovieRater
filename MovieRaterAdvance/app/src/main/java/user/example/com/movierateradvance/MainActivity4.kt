@@ -22,9 +22,11 @@ class MainActivity4 : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        val movieDesc = applicationContext as MovieDetail
-        movieDesc.rating = ratingBar.rating
-        movieDesc.review= review.text.toString()
+        val movieDesc = applicationContext as MovieArray
+        val movieDetails = movieDesc.getMovie().last()
+
+        movieDetails.rating = ratingBar.rating
+        movieDetails.review= review.text.toString()
         val intent = Intent(applicationContext,MainActivity3::class.java)
         startActivity(intent)
         return super.onOptionsItemSelected(item)

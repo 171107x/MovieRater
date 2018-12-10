@@ -2,7 +2,7 @@ package user.example.com.movierateradvance
 
 import android.app.Application
 
-class MovieDetail: Application(){
+class MovieDetail{
 
     var movie: String = ""
     var description: String = ""
@@ -20,4 +20,30 @@ class MovieDetail: Application(){
         this.rating = rating
         this.review = review
     }
+}
+class MovieArray: Application() {
+    var movieList : ArrayList<MovieDetail>
+    init{
+        this.movieList = ArrayList()
+    }
+
+    fun addMovie(movie: MovieDetail){
+        this.movieList.add(movie)
+    }
+
+    fun getMovie():ArrayList<MovieDetail>{
+        return this.movieList
+    }
+
+    private var singleton : MovieArray? = null
+
+    fun getInstance() : MovieArray?{
+        return singleton
+    }
+
+    override fun onCreate() {
+        super.onCreate()
+        singleton = this
+    }
+
 }
