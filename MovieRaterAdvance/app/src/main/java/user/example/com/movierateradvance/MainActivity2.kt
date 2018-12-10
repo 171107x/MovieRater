@@ -43,8 +43,6 @@ class MainActivity2 : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
 
         if (item?.itemId == R.id.miRegister) {
-            for (id in ids) {
-                val lol = findViewById<View>(id) as EditText
 
                 if(movie.text.isEmpty())
                 {
@@ -71,8 +69,8 @@ class MainActivity2 : AppCompatActivity() {
                         movieDesc.date = editText.text.toString()
                         movieDesc.age = age
                         val movieL = applicationContext as MovieArray
-                        movieL.addMovie(movieDesc)
                         val intent = Intent(applicationContext, MainActivity3::class.java)
+                        movieL.addMovie(movieDesc)
                         startActivity(intent)
                     }
                     else if(!checkBox.isChecked)
@@ -85,13 +83,13 @@ class MainActivity2 : AppCompatActivity() {
                         movieDesc.date = editText.text.toString()
                         movieDesc.age = age
                         val movieL = applicationContext as MovieArray
-                        movieL.addMovie(movieDesc)
                         val intent = Intent(applicationContext, MainActivity3::class.java)
+                        movieL.addMovie(movieDesc)
                         startActivity(intent)
                     }
                 }
 
-            }
+
 
         } else if(item?.itemId == R.id.miClear){
             for (id in ids) {

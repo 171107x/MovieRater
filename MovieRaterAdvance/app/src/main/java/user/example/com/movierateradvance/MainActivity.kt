@@ -14,10 +14,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        registerForContextMenu(list_view)
         val movieList = applicationContext as MovieArray
         if (movieList.getMovie().isNotEmpty())
         {
-            val adapter = MovieAdapter(applicationContext, movieList.getMovie())
+            val adapter = MovieAdapter(this, movieList.getMovie())
             list_view.adapter = adapter
         }
     }
@@ -68,19 +69,22 @@ class MainActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
-//    override fun onCreateContextMenu(menu: ContextMenu?, v: View?, menuInfo: ContextMenu.ContextMenuInfo?) {
-//        super.onCreateContextMenu(menu, v, menuInfo)
-//        if(v?.id == R.id.movieText) {
-//            menu?.add(1, 1001, 1, "Add")
-//        }
-//
-//    }
-//    override fun onContextItemSelected(item: MenuItem?): Boolean {
-//        if(item?.itemId == 1001)
-//        {
-//            val intent = Intent(this, MainActivity2::class.java)
-//            startActivity(intent)
-//        }
-//        return super.onContextItemSelected(item)
-//    }
+    override fun onCreateContextMenu(menu: ContextMenu?, v:
+    View?, menuInfo: ContextMenu.ContextMenuInfo?) {
+        super.onCreateContextMenu(menu, v, menuInfo)
+        if(v?.id == R.id.list_view) {
+            menu?.add(3, 3001, 1, "Edit")
+        }
+
+    }
+    override fun onContextItemSelected(item: MenuItem?): Boolean {
+        val info = item?.menuInfo as AdapterView.AdapterContextMenuInfo
+        if(item.itemId == 3001)
+        {
+            val intent = Intent(this@MainActivity, MainActivity5::class.java)
+            intent.putExtra("position",info.id.toInt())
+            startActivity(intent)
+        }
+        return super.onContextItemSelected(item)
+    }
 }

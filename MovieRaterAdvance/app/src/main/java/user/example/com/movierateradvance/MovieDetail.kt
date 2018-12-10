@@ -24,7 +24,7 @@ class MovieDetail{
 class MovieArray: Application() {
     var movieList : ArrayList<MovieDetail>
     init{
-        this.movieList = ArrayList()
+        this.movieList = arrayListOf()
     }
 
     fun addMovie(movie: MovieDetail){

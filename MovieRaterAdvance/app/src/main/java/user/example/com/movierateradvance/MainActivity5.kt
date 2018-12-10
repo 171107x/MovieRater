@@ -15,7 +15,9 @@ class MainActivity5 : AppCompatActivity() {
         setContentView(R.layout.activity_main5)
         supportActionBar
         val movieDesc = applicationContext as MovieArray
-        val movieDetails = movieDesc.getMovie().last()
+        val position = intent.getIntExtra("position",0)
+        val movieDetails = movieDesc.getMovie().elementAt(position.toInt())
+
 
         val movie = findViewById<EditText>(R.id.movie)
         val description = findViewById<EditText>(R.id.description)
