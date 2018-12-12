@@ -41,7 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/ratingBar" android:numStars="5"
-            android:isIndicator="true"/>
+            android:isIndicator="true" android:visibility="gone"/>
     <TextView
             android:text="No Reviews yet. \n Long press here to add your review."
             android:layout_width="match_parent"
